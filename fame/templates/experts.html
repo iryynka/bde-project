@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load highlight %}
+
+
+{% block title %}Experts{% endblock %}
+{% block body %}
+    <style>
+    .main-container{
+        display: block;
+        width: 100vw;
+        height: 50vh;
+
+        padding: 20px 30% 100px 30% ;
+        color: #212121;
+
+    }
+    h1{
+    text-align: center;
+    }
+    .container{
+        width: 100%;
+        display: block;
+        border:1px solid #c9c9c9;
+        border-radius: 10px;
+        margin:10px 0;
+        padding: 20px 30px;
+
+    }
+    .label-header{
+        color:#5c5b5b;
+        height: 34px;
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .user-container{
+        background-color: #f5f0e6;
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        color: #212121;
+        padding: 3px 5px ;
+        height: 34px;
+    }
+
+    </style>
+    <div class="main-container" >
+    <h1>Experts list</h1>
+    {% for label in experts %}
+        <div class="container">
+            <div class="label-header">
+                {{ label.label }}
+            </div>
+
+        <div class="users">
+            {% for user in label.users %}
+                <div class="user-container">
+                    <div class="username">{{ user.user }}</div>
+                    <div class="fame-level" style="color:#66b04c">{{ user.fame_level_numeric }}</div>
+                </div>
+                {% endfor %}
+        </div>
+        </div>
+
+
+    {% endfor %}
+</div>`
+{% endblock %}
